@@ -1,0 +1,37 @@
+{% load static %}
+<section id="login" class="about">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-5 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="150">
+          <img class="d-flex" src="{% static 'img/about.jpg' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-4 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+          <h5>Please sign in to your account.</h5><br />
+          <p class="fst-italic">
+              {% if messages %}
+              <ul class="messages">
+                  {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                  {% endfor %}
+              </ul>
+              {% endif %}
+          </p>
+          <form action="" method="POST">
+            {% csrf_token %}
+            
+            <input class="form-control" type="email" name="email" placeholder="Email" /><br />
+            <input class="form-control" type="password" name="password" placeholder="Password" /><br />
+
+            {% if login_form.non_field_errors %}
+                    <small style="color:red">{{login_form.non_field_errors}}</small>
+            {% endif %}
+            
+            <button type="submit" class="btn btn-success" style="width: 100px;">Login</button>
+            </form>
+          
+        </div>
+      </div>
+
+    </div>
+  </section>

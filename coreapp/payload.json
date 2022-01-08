@@ -1,0 +1,60 @@
+payload = {
+  "products": {"SKUaaa12": {
+          "url": "http://example_product_url1.com",
+          "name": "product1",
+          "image": "http://images2.fanpop.com/image/photos/13300000/A1.jpg",
+          "description": "this is the description of a product",
+          "price": "100",
+          "specs": {
+              "upc": "USB",
+              "mpn": "100-100-0.100-1000-A",
+              "brand": "samplebrand",
+              "isbn": "thingy",
+              "ean": "0012345678905",
+              "external_sku": "000SKU123"
+          },
+          "product_tags": "book"
+      }},
+  "platform": "general",
+  "utoken": "YOUR_UTOKEN",
+  "email": "client@abc.com",
+  "customer_name": "bob",
+  "order_id": "order_1",
+  "order_date": "2010-10-14",
+  "currency_iso": "USD"
+}
+
+
+  {
+    "order":{
+       "external_id":"000000002",
+       "order_date":"2021-03-25T13:57:05Z",
+       "customer":{
+          "external_id":"ak123798684365sdfkj",
+          "email":"tom.smith@hostname.com",
+          "first_name":"Tom",
+          "last_name":"Smith",
+          "accepts_sms_marketing":true,
+          "accepts_email_marketing":true
+       },
+       "line_items":[
+          {
+             "quantity":1,
+             "external_product_id":"23234"
+          }
+       ],
+       "fulfillments":[
+          {
+             "fulfillment_date":"2021-03-31T11:58:51Z",
+             "external_id":"4444444",
+             "status":"success",
+             "fulfilled_items":[
+                {
+                   "external_product_id":"23234",
+                   "quantity":1
+                }
+             ]
+          }
+       ]
+    }
+ }

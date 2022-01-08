@@ -1,0 +1,62 @@
+{% extends 'snippets/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'snippets/hero.html' %}
+
+
+<main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="register" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="150">
+            <img src="{% static 'img/undraw_sculpting.svg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" pr-4>
+            <h3>Create an account!</h3>
+            <br />
+            <div class="sent-message">
+              {% if messages %}
+                <div class="alert alert-success" role="alert">
+                  {% for message in messages %}
+              {{message}}{% endfor %}
+                </div>
+              {% endif %}
+              
+            </div>
+            <form action="{% url 'register' %}" method="POST">
+              {% csrf_token %}
+
+              {{ form.email }}
+              <br />
+              {{ form.username }}<br />
+              {{ form.password1 }}<br />
+              {{ form.password2 }}<br />
+              {{ form.first_name }}<br />
+              {{ form.last_name }}
+             
+              {% if form.non_field_errors %}
+                  {% for error in form.non_field_errors %}
+                      {{ error }}
+                  {% endfor %}
+              {% endif %}
+              
+              
+      
+                <br />
+                <button type="submit" class="read-more">Submit</button>
+              </form>
+           
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    
+
+  </main>
+{% endblock %}
+   

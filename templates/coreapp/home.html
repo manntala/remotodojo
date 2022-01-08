@@ -1,0 +1,64 @@
+{% extends 'snippets/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'snippets/hero.html' %}
+
+
+<main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="home" class="home">
+      <div class="container">
+        <div class="section-title">
+          <h2>Posts Collection</h2>
+          <p>These are the our posts. You need to go to your <a href="{% url 'dashboard' %}#dashboard">Dashboard</a> to edit the them.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="150">
+            <img src="{% static 'img/about.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+            
+            <br />
+            {% for post in posts %}
+            <h4 class="text-secondary">{{ post.title | title }}</h4>
+            <p>by: <span class="text-end fw-bold">{{ post.owner }}</span></p>
+            <p>{{ post.description }}</p>
+            <br />
+            <hr class="text-muted" />
+            {% endfor %}
+           
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <!-- End Counts Section -->
+
+    <!-- ======= Services Section ======= -->
+    <!-- End Services Section -->
+
+    <!-- ======= Features Section ======= -->
+    <!-- End Features Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <!-- End Testimonials Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <!-- End Portfolio Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    <!-- End Pricing Section -->
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <!-- End Frequently Asked Questions Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <!-- End Contact Section -->
+
+  </main>
+{% endblock %}
+   

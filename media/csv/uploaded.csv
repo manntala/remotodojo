@@ -1,0 +1,4 @@
+email,name,product_id,order_id,order_date,product_url,product_title
+new@email.com,new1,5922636857498,1111,2022-1–01,https://laptopmio.myshopify.com/products/asus-rog-zephyrus-m15-gu502lu-15-6-gaming-laptop-144hz,"ASUS ROG Zephyrus M15 GU502LU 15.6"" Gaming Laptop 144Hz"
+new2@email.com,new2,5922636857498,2222,2022-1–2,https://laptopmio.myshopify.com/products/asus-rog-zephyrus-m15-gu502lu-15-6-gaming-laptop-144hz,"ASUS ROG Zephyrus M15 GU502LU 15.6"" Gaming Laptop 144Hz"
+new3@email.com,new3,5922636857498,2222,2021-12–25,https://laptopmio.myshopify.com/products/asus-rog-zephyrus-m15-gu502lu-15-6-gaming-laptop-144hz,"ASUS ROG Zephyrus M15 GU502LU 15.6"" Gaming Laptop 144Hz"

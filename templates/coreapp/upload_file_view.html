@@ -1,0 +1,20 @@
+<div class="card-body">
+    <h5 class="card-title">Store Information</h5>
+    <p class="card-text"></p>
+    {% if messages %}
+        <div class="alert alert-success">
+            {{ messages }}
+        </div>
+    {% endif %}
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+     
+      <button class="form-control btn btn-primary py-2 my-2" type="submit" aria-label="default input example">Upload CSV</button>
+      <pre>{% for response in responses%}
+          {{ response }}
+          {% endfor %}
+      </pre>
+  </form>
+    
+  </div>

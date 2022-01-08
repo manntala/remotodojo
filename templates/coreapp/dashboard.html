@@ -1,0 +1,84 @@
+{% extends 'snippets/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'snippets/hero.html' %}
+
+<main id="main">
+  <section id="dashboard" class="contact section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Welcome to your dashboard!</h2>
+        <p>You may edit your post here!</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+         
+            
+             
+            <div class="form-group mt-3 py-3 pr-4">
+              <div class="my-3">
+              
+                <div class="sent-message">
+                  {% if messages %}
+                    <div class="alert alert-success" role="alert">
+                      {% for message in messages %}
+                  {{message}}{% endfor %}
+                    </div>
+                  {% endif %}
+                  
+                </div>
+              </div> 
+              <p class="pb-2"><a class="btn btn-success" href="{% url 'addpost' %}#addpost" class="px-2" >Add Post</a> </p>
+              
+              
+              {% for post in posts %}
+            <div class="pr-4">
+            <h3 class="text-secondary">{{ post.title | title }}</h3>
+              <p>by:
+                <span class="text-end fw-bold">{{ post.owner }}</span>
+              <span class="text-end">
+              {% if post.published == True %}
+              <small><a href="{% url 'unpublished' post.id %}#dashboard" style="color:rgb(48, 168, 112)">pub</a></small>
+              {% else %}
+              <small><a href="{% url 'published' post.id %}#dashboard" style="color:red">not pub</a></small>
+              </p>
+              {% endif %}
+              <p>{{ post.description }}</p>
+              
+            </span>
+            <div class="text-end">
+            <small>
+            <a href="{% url 'editpost' post.id %}#editpost">Edit</a>
+            <a href="{% url 'deletepost' post.id %}" class="px-2" onclick="return confirm('Delete this post?');">Delete</a></small>
+            </div>
+            <hr class="text-muted" />
+            </div>
+            {% endfor %}
+            </div>
+            
+         
+
+            
+            
+        </div>
+      
+        <div class="col-lg-4 ml-auto pt-6">
+         
+          <img class="d-flex pt-4" src="{% static 'img/features.svg' %}" width="80%">
+        </div>
+
+        
+
+      </div>
+
+    </div>
+  </section>
+
+   
+    <!-- End Contact Section -->
+
+  </main>
+{% endblock %}
+   

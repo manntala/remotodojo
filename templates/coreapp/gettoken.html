@@ -1,0 +1,81 @@
+{% extends 'snippets/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'snippets/hero.html' %}
+
+
+
+<main id="main">
+
+   
+    <section id="gettoken" class="contact section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Welcome, {{request.user.first_name}}</h2>
+          <p>
+              This is your dashboard.
+          </p>
+        </div>
+
+        <!-- <div class="row">
+          <div class="col-lg-6">
+            <div class="info-box mb-4">
+              <i class="bx bx-map"></i>
+              <h3>Our Address</h3>
+              <p>A108 Adam Street, New York, NY 535022</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-envelope"></i>
+              <h3>Email Us</h3>
+              <p>contact@example.com</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-phone-call"></i>
+              <h3>Call Us</h3>
+              <p>+1 5589 55488 55</p>
+            </div>
+          </div>
+
+        </div> -->
+
+        <div class="row">
+          <div class="col-lg-6 ">
+            <h3>Utoken</h3>
+            <form method="POST" action="{% url 'gettoken' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">App Key:</label>
+                    <input type="text" class="form-control" id="exampleFormControlFile1" name="appkey">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Secret Key:</label>
+                    <input type="text" class="form-control" id="exampleFormControlFile1" name="secretkey">
+                </div>
+             
+              <button class="form-control btn btn-primary py-2 my-2 px-4" type="submit" aria-label="default input example">Get Token</button>
+              <p>{% for response in utoken %}
+                  {{ response }}
+                  {% endfor %}
+              </p>
+          </form>
+          </div>
+
+          <div class="col-lg-6">
+            
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main>
+{% endblock %}
+   

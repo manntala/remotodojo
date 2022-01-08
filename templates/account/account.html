@@ -1,0 +1,62 @@
+{% extends 'snippets/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'snippets/hero.html' %}
+
+
+
+<main id="main">
+
+   
+    <section id="account" class="account section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Account Page</h2>
+          <p>Please update your password here.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="sent-message">
+              {% if messages %}
+                <div class="alert alert-success" role="alert">
+                  {% for message in messages %}
+              {{message}}{% endfor %}
+                </div>
+              {% endif %}
+              
+            </div>
+            <form method="POST" action="{% url 'update_password' %}">
+              {% csrf_token %}
+              <div class="row">
+                
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Your Password" required>
+                </div>
+                
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="password" class="form-control" name="password2" id="password" placeholder="Confirm Password" required>
+                </div>
+              </div>
+              
+              
+              
+              <div class="text-end pt-4"><button class="btn btn-success" type="submit">Update Password</button></div>
+            </form>
+          </div>
+
+          <div class="col-lg-6 ">
+            <img src="{% static 'img/about.jpg' %}" width="80%" class="mx-auto">
+          </div>
+
+          
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main>
+{% endblock %}
+   
