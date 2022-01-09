@@ -22,9 +22,9 @@
             
             <br />
             {% for post in posts %}
-            <h4 class="text-secondary">{{ post.title | title }}</h4>
-            <p>by: <span class="text-end fw-bold">{{ post.owner }}</span></p>
-            <p>{{ post.description }}</p>
+            <h4 class="fw-bold">{{ post.title | title }}</h4>
+            <p>by: <span class="text-end"><small >{{ post.owner | upper }}</small></span></p>
+            <p class="text-secondary">{{ post.description }}</p>
             <br />
             <hr class="text-muted" />
             {% endfor %}

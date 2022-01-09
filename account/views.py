@@ -53,6 +53,11 @@ def login_view(request):
             if user:
                 login(request, user)              
                 return redirect('dashboard') 
+        else:
+            messages.add_message(request, messages.ERROR, 'Invalid login credentials')
+            
+            form = AccountAuthenticationForm()
+
     else:
         form = AccountAuthenticationForm()
 

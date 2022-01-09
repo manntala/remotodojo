@@ -34,8 +34,16 @@ class AccountAuthenticationForm(forms.ModelForm):
         if self.is_valid():
             email = self.cleaned_data['email']
             password = self.cleaned_data['password']
-            if not authenticate(email=email, password=password):
-                raise forms.ValidationError('Invalid login')
+
+            try:
+                account = Account.objects.get(email=email)
+                if account.check_password(password):
+                    return self.cleaned_data
+                else:
+                    self._errors['password'] = self.error_class(['Incorrect password'])
+
+            except Account.DoesNotExist:
+                self._errors['email'] = self.error_class(['Email does not exist'])
     
     def __init__(self, *args, **kwargs):
         super(AccountAuthenticationForm, self).__init__(*args, **kwargs)

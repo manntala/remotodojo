@@ -5,7 +5,7 @@ from django.contrib import messages
 
 
 def home(request):
-    posts = Post.objects.filter(published=True).order_by('-timestamp')
+    posts = Post.objects.filter(published=True).order_by('-id')
     return render(request, 'coreapp/home.html', {'posts': posts})
 
  

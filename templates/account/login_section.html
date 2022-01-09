@@ -7,12 +7,12 @@
           <img class="d-flex" src="{% static 'img/about.jpg' %}" class="img-fluid" alt="">
         </div>
         <div class="col-lg-4 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
-          <h5>Please sign in to your account.</h5><br />
+          <h5>Please sign in</h5><br />
           <p class="fst-italic">
               {% if messages %}
               <ul class="messages">
                   {% for message in messages %}
-                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                  <small class="text-danger fw-bold">{{ message | upper }}</small>
                   {% endfor %}
               </ul>
               {% endif %}
