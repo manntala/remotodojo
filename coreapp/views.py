@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from . models import Post
 from django.contrib import messages
@@ -8,12 +9,14 @@ def home(request):
     posts = Post.objects.filter(published=True).order_by('-id')
     return render(request, 'coreapp/home.html', {'posts': posts})
 
- 
+
+@login_required(login_url='/account/login')
 def dashboard(request):
     posts = Post.objects.filter(owner=request.user)
     return render(request, 'coreapp/dashboard.html', {'posts': posts})
 
 
+@login_required(login_url='/account/login')
 def addpost(request):
 
     if request.method == 'POST':
@@ -31,10 +34,13 @@ def addpost(request):
 
     return render(request, 'coreapp/addpost.html')
 
+
+@login_required(login_url='/account/login')
 def editpost(request, id):
     post = Post.objects.get(id=id)
     return render(request, 'coreapp/editpost.html', {'post': post})
 
+@login_required(login_url='/account/login')
 def updatepost(request, id):
     post = Post.objects.get(id=id)
     post.title = request.POST['title']
@@ -47,6 +53,7 @@ def updatepost(request, id):
 
     return render(request, 'coreapp/editpost.html')
 
+@login_required(login_url='/account/login')
 def deletepost(request, id):
     post = Post.objects.get(id=id).delete()
     
@@ -56,6 +63,7 @@ def deletepost(request, id):
 
     return render(request, 'coreapp/dashboard.html')
 
+@login_required(login_url='/account/login')
 def published(request, id):
     post = Post.objects.get(id=id)
     post.published = True
@@ -66,7 +74,7 @@ def published(request, id):
 
     return render(request, 'coreapp/dashboard.html#dashboard')
 
-
+@login_required(login_url='/account/login')
 def unpublished(request, id):
     post = Post.objects.get(id=id)
     post.published = False

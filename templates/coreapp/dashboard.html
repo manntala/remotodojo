@@ -40,9 +40,9 @@
                 <span class="text-end"><small>{{ post.owner | upper }}</small></span>
               <span class="text-end">
               {% if post.published == True %}
-              <small><a href="{% url 'unpublished' post.id %}#dashboard" style="color:rgb(48, 168, 112)">PUBLISHED</a></small>
+              <small><a href="{% url 'unpublished' post.id %}#dashboard" style="color:rgb(48, 168, 112)" title="Unpublish Post?">PUBLISHED</a></small>
               {% else %}
-              <small><a href="{% url 'published' post.id %}#dashboard" style="color:red">NOT PUBLISHED</a></small>
+              <small><a href="{% url 'published' post.id %}#dashboard" style="color:red" title="Publish Post?">NOT PUBLISHED</a></small>
               </p>
               {% endif %}
               <p class="text-secondary">{{ post.description }}</p>
