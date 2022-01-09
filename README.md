@@ -1,4 +1,5 @@
 # remotodojo
+This is my sample exam, secret key is not hidden
 
 How to use?
 
